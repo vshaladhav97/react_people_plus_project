@@ -1,0 +1,224 @@
+.width-full {
+  width: 100% !important;
+}
+
+.height-full {
+  height: 100% !important;
+}
+
+.width-auto {
+  width: auto !important;
+}
+
+//padding
+$spacings: left, right, top, bottom, all;
+@for $i from 0 through 20 {
+  @each $s in $spacings {
+    @if $s == all {
+      .p#{$i} {
+        padding: #{$i}px !important;
+      }
+    } @else if $s == left {
+      .pl#{$i} {
+        padding-#{$s}: #{$i}px !important;
+      }
+    } @else if $s == right {
+      .pr#{$i} {
+        padding-#{$s}: #{$i}px !important;
+      }
+    } @else if $s == top {
+      .pt#{$i} {
+        padding-#{$s}: #{$i}px !important;
+      }
+    } @else if $s == bottom {
+      .pb#{$i} {
+        padding-#{$s}: #{$i}px !important;
+      }
+    }
+  }
+  $i: $i + 5;
+}
+
+//margin
+@for $i from 0 through 20 {
+  @each $s in $spacings {
+    @if $s == all {
+      .m#{$i} {
+        margin: #{$i}px !important;
+      }
+    } @else if $s == left {
+      .ml#{$i} {
+        margin-#{$s}: #{$i}px !important;
+      }
+    } @else if $s == right {
+      .mr#{$i} {
+        margin-#{$s}: #{$i}px !important;
+      }
+    } @else if $s == top {
+      .mt#{$i} {
+        margin-#{$s}: #{$i}px !important;
+      }
+    } @else if $s == bottom {
+      .mb#{$i} {
+        margin-#{$s}: #{$i}px !important;
+      }
+    }
+  }
+  $i: $i + 5;
+}
+
+//text-align
+$alignments: left, right, center;
+
+@each $alignment in $alignments {
+  .text-#{$alignment} {
+    text-align: #{$alignment} !important;
+  }
+}
+
+.auto-margin {
+  margin: 0 auto !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+.flex-grow {
+  flex-grow: 1 !important;
+}
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+.flex-row {
+  flex-direction: row !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.error {
+  color: #6d0022;
+}
+
+.success {
+  color: #43a047;
+}
+
+.warning {
+  color: #ffa000;
+}
+
+.info {
+  color: #1976d2;
+}
+
+.slide-in {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}

@@ -1,0 +1,36 @@
+image: node:10.13.0
+
+cache:
+  untracked: true
+  key: node_modules_cached_for_branch_${CI_COMMIT_REF_SLUG}  #static name, can use any branch, any commit, etc..
+  paths:
+    - node_modules/
+
+stages:
+  - setup
+  - lint
+  - coverage
+  - deploy
+
+install_dependencies:
+  stage: setup
+  script:
+    - npm install
+
+lint_check:
+  stage: lint
+  script:
+    - npm run lint
+  dependencies:
+    - install_dependencies
+
+coverage:
+  stage: coverage
+  script:
+    - npm run test
+  dependencies:
+    - lint_check
+  artifacts:
+    paths:
+      - coverage/
+    expire_in: 1 year

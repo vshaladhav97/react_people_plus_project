@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Success">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Success" clip-path="url(#clip-Success)">
+    <path id="Subtraction_1" data-name="Subtraction 1" d="M12,24A12,12,0,0,1,3.515,3.515,12,12,0,1,1,20.485,20.485,11.922,11.922,0,0,1,12,24ZM7.137,11.325a1.115,1.115,0,0,0-.806.34,1.22,1.22,0,0,0,0,1.67l3.233,3.326a1.155,1.155,0,0,0,.817.339,1.115,1.115,0,0,0,.806-.339L17.668,10a1.21,1.21,0,0,0,.014-1.656A1.149,1.149,0,0,0,16.865,8a1.117,1.117,0,0,0-.807.34L10.39,14.17l-2.435-2.5A1.152,1.152,0,0,0,7.137,11.325Z" fill="#43a047"/>
+  </g>
+</svg>

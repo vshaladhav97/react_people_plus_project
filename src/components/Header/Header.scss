@@ -1,0 +1,219 @@
+$primary: #353535;
+$secondary: white;
+$accent: #4bd800;
+$badge: #4c10c1;
+
+.header {
+  display: flex;
+  min-height: 70px;
+  background: var(--header-background, $secondary);
+  padding: 0px 50px;
+  align-items: center;
+  justify-content: var(--header-align-items, space-between);
+  position: relative;
+  z-index: 500;
+}
+
+.header__nav {
+  align-self: var(--header-nav-align, flex-end);
+  justify-self: center;
+}
+
+.header__ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header__li {
+  display: inline-flex;
+  align-items: var(--header-nav-align, flex-end);
+  justify-content: center;
+  padding-left: 12px;
+  position: relative;
+  font-family: inherit;
+  .active {
+    border-bottom: 5px solid var(--header-active-link-border-color, $accent);
+  }
+}
+
+.header__button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  border-bottom: 5px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  padding-bottom: 5px;
+  color: var(--header-link-color, $primary);
+  &:focus {
+    outline: none;
+    border-bottom: 5px solid var(--header-active-link-border-color, $accent);
+  }
+  .header__nav-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+  }
+}
+
+.header__button-padding {
+  padding: 8px 14px;
+}
+
+.nav__badge {
+  position: absolute;
+  border-radius: 50%;
+  min-width: 16px;
+  width: fit-content;
+  height: 16px;
+  font-size: 10px;
+  font-weight: lighter;
+  top: -15px;
+  right: -10px;
+  background: var(--header-badge-background, $badge);
+  color: var(--header-badge-color, $secondary);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.header__super-nav {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .header__super-button {
+    background: transparent;
+    border: 0;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-family: inherit;
+    color: var(--header-super-nav-color, $primary);
+    cursor: pointer;
+    &:focus {
+      outline: none;
+      color: var(--header-super-nav-active, $accent);
+    }
+  }
+  .active {
+    color: var(--header-super-nav-active, $accent);
+  }
+}
+
+.header__hamburger {
+  box-sizing: content-box !important;
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 25px;
+  align-items: center;
+  font-family: inherit;
+  span {
+    padding-left: 12px;
+    font-size: 20px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.header--fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.header--fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.header--sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.header--sticky-bottom {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 0px 20px;
+    .header__hamburger {
+      display: flex;
+      color: var(--header-link-color, $primary);
+      margin-left: auto;
+    }
+    .header__nav {
+      position: absolute;
+      top: calc(100%);
+      left: 0;
+      right: 0;
+      transition: all 0.3s ease-out;
+      height: calc(100vh - 100%);
+      background: var(--header-background, $secondary);
+      z-index: 9999;
+      .header__ul {
+        right: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--header-background, $secondary);
+        .header__li {
+          padding: 0px 10px;
+          .nav__badge {
+            display: none;
+          }
+          .header__button {
+            width: 100%;
+            padding: 12px 14px;
+            justify-content: space-between;
+            height: 35px;
+            border-bottom: 1px solid #ccc;
+            &:focus {
+              border-bottom: 1px solid var(--header-active-link-border-color, $accent);
+            }
+          }
+          .active {
+            border-bottom: 1px solid var(--header-active-link-border-color, $accent);
+          }
+        }
+      }
+    }
+    .header__nav--hidden {
+      left: 200%;
+      overflow: hidden;
+    }
+    .header__super-nav {
+      right: 20px;
+      .header__super-button {
+        padding: 5px;
+      }
+    }
+  }
+}

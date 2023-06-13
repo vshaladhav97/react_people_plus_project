@@ -1,0 +1,86 @@
+
+$white: #ffffff;
+$shadow: #353535;
+$black: #000000;
+$red: #f44336;
+$dark-grey: rgba(200,200,200,.2);
+
+.tab-validation-icon {
+ width: 15px;
+ height: auto;
+ margin-left: 20px;
+}
+
+.wizard-container {
+ box-sizing: border-box;
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+ background-color: $white;
+ box-shadow: $shadow;
+}
+
+.wizard-container-header {
+ height: 50px;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ color: $black;
+
+ font-weight: bold;
+ font-size: 22px;
+}
+
+.wizard-container-sub-header {
+ height: 50px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: $black;
+ font-size: 16px;
+}
+.wizard-button-container{
+ display: flex;
+ flex-direction: row;
+ position: relative;
+ background-color: $dark-grey;
+}
+.wizard-tab-buttons {
+ border-radius: 0px !important;
+ height: auto !important;
+}
+.wizard-content-container {
+ min-height: 300px;
+ width: 100%;
+}
+.wizard-footer-buttons-container {
+ display: flex;
+ justify-content: space-between;
+ padding: 10px 20px;
+}
+.wizard-btns {
+ min-width: 150px !important;
+}
+.wizard-right-btn {
+ display: flex;
+ justify-content: flex-end;
+}
+.wizard-card-moving-tab {
+ position: absolute;
+ text-align: center;
+ padding: 16px;
+ font-size: 14px;
+ text-transform: uppercase;
+ -webkit-font-smoothing: subpixel-antialiased;
+ background-color: $red;
+ top: -4px;
+ left: -4px;
+ border-radius: 4px;
+ color: $white;
+ cursor: pointer;
+ font-weight: 500;
+ box-shadow: 0 16px 26px -10px rgb(244 67 54 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(244 67 54 / 20%);
+}

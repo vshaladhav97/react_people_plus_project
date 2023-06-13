@@ -1,0 +1,14 @@
+.footer__container {
+  bottom: 0;
+  background-color: var(--footer-bg);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  min-height: 60px;
+  box-sizing: border-box;
+  &.sticky-true {
+    position: sticky;
+  }
+}

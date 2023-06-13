@@ -1,0 +1,128 @@
+$primary: #4c1bc1;
+$grey: #ccc;
+$grey_default: #d1d8e0;
+$grey-light: #f2f2f2;
+$primary-light: #602bdb;
+.checkbox {
+  display: flex;
+  align-items: baseline;
+  width: fit-content;
+  position: relative;
+  input {
+    position: relative;
+    top: 2px;
+    -webkit-appearance: none;
+    transition: 0.2s;
+    height: 15px;
+    width: 15px;
+    min-width: 15px;
+    margin: 0;
+    border: 1px solid var(--checkbox-default, $grey_default);
+    border-radius: 1px;
+    cursor: pointer;
+    &:checked {
+      border: 1px solid var(--checkbox-primary, $primary);
+      &:after {
+        content: '\2713';
+        color: var(--checkbox-primary-tick, $primary);
+        position: absolute;
+        top: -2px;
+        left: 2px;
+      }
+    }
+    &:hover {
+      border: 1px solid var(--checkbox-secondary, $primary-light);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0px 2px var(--primary, #add8e6);
+    }
+    & + .checkbox__label {
+      padding-left: 5px;
+      cursor: pointer;
+    }
+  }
+
+  input[type='checkbox']:disabled,
+  input[type='checkbox']:disabled + .checkbox__label {
+    cursor: not-allowed;
+    opacity: 0.5;
+    &:hover {
+      border-color: var(--checkbox-default, $grey_default);
+    }
+  }
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  .checkbox__label--tabs {
+    &:hover {
+      border-color: var(--checkbox-secondary, $primary-light);
+    }
+  }
+
+  input[type='checkbox']:checked + .checkbox__label--tabs {
+    color: var(--checkbox-tabs-primary-text, $primary);
+    border-color: var(--checkbox-tabs-primary, $primary);
+  }
+
+  input[type='checkbox']:disabled,
+  input[type='checkbox']:disabled + .checkbox__label--tabs {
+    cursor: not-allowed;
+    opacity: 0.5;
+    &:hover {
+      border-color: var(--checkbox-tabs-inactive, $grey);
+    }
+  }
+}
+
+.checkbox__label--tabs {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: normal;
+  text-align: center;
+  padding: 10px 16px;
+  background: #fff;
+  color: var(--checkbox-tabs-inactive-text, $grey);
+  border-color: var(--checkbox-tabs-inactive, $grey);
+  min-width: 40px;
+}
+
+.checkbox > .ripple {
+  background: var(--checkbox-ripple, $grey-light);
+  display: block;
+  content: '';
+  opacity: 1;
+  animation: 0.9s ease 1 forwards checkbox-ripple-effect;
+}
+
+@keyframes checkbox-ripple-effect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.375;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.checkbox > .content {
+  position: relative;
+  z-index: 2;
+}

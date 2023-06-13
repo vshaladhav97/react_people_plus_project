@@ -1,0 +1,147 @@
+$primary: #4c1bc1;
+$primary-light: #602bdb;
+$inactive: #fff;
+$white: #ffffff;
+$black: black;
+
+.dot-progress-bar-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.dot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  position: relative;
+  min-width: 80px;
+  z-index: 1;
+  span {
+    z-index: 1;
+  }
+  &:before {
+    top: 8px;
+    content: '';
+    height: 2px;
+    background-color: var(--progress-bar-primary, $primary);
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    left: calc(-50% + 9px);
+  }
+  &:first-child {
+    &:before {
+      content: none;
+    }
+  }
+}
+
+.dot-icon {
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: relative;
+  background-color: $inactive;
+  border: 2px solid var(--progress-bar-primary, $primary);
+}
+
+.dot-description {
+  padding: 10px;
+  font-weight: 100;
+  color: var(--progress-bar-inactive-text, $black);
+}
+
+.active {
+  &:after,
+  .dot-icon {
+    background-color: var(--progress-bar-primary, $primary);
+  }
+  .dot-tick {
+    &:after {
+      content: '\2713';
+      position: absolute;
+      left: 3px;
+      top: 0px;
+      text-align: center;
+      color: var(--progress-bar-inner-text, $white);
+      height: 10px;
+      width: 10px;
+      font-size: 10px;
+      z-index: 3;
+    }
+  }
+  .dot-icon {
+    color: var(--progress-bar-inner-text, $white);
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.current {
+      &:after {
+        content: none;
+      }
+    }
+  }
+  .dot-description {
+    color: var(--progress-bar-active-text, $primary);
+    font-weight: 500;
+  }
+}
+
+.dot-circle {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 50%;
+  width: 24px;
+  height:24px;
+  box-shadow: 0px 0px 0px 2px var(--progress-bar-primary, $primary);
+}
+
+@media (max-width: 767px) {
+  .dot-progress-bar-container {
+    flex-direction: column;
+  }
+  .dot-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .dot-circle {
+    width: 26px;
+    height:26px; 
+  }
+  .active {
+    .dot-icon {
+      &::before {
+        width: 24px;
+        height: 24px;
+      }
+      &::after {
+        left: 4px;
+        top: 1px;
+        font-size: 10px;
+      }
+    }
+  }
+  .dot-item {
+    flex-direction: row;
+    min-height: 60px;
+    &:after {
+      width: 2px;
+      height: 100%;
+      top: -50%;
+      left: 11px;
+    }
+    &:before {
+      left: 9px;
+      width: 2px;
+      height: 80%;
+      top: -33%;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+$disabled: #bdbdbd;
+$primary: #4c10c1;
+$grey-light: #f2f2f2;
+$white: #fff;
+
+.toggle-switch {
+  position: relative;
+  margin-right: 10px;
+  width: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  &-checkbox {
+    display: none;
+  }
+  &-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+    > span:focus {
+      outline: none;
+    }
+  }
+  &-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: 300ms;
+    &:before,
+    &:after {
+      float: left;
+      width: 50%;
+      height: 15px;
+    }
+    &:before {
+      content: '';
+      background-color: var(--switch-primary, $primary);
+    }
+  }
+  &-inner:after {
+    content: '';
+    background-color: $disabled;
+  }
+  &-icon {
+    width: 20px;
+    height: 20px;
+    margin: 2px 0px 2px 2px;
+    background-color: $white;
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    transition: 300ms;
+  }
+  &-disabled {
+    background-color: $disabled !important;
+    cursor: not-allowed;
+    &:after,
+    &:before {
+      opacity: 0.5;
+      background-color: $disabled;
+    }
+    &:before {
+      opacity: unset;
+    }
+  }
+  &-checkbox:checked + &-label {
+    .toggle-switch-inner {
+      margin-left: 0;
+      opacity: 0.5;
+    }
+    .toggle-switch-icon {
+      right: 0px;
+      width: 20px;
+      height: 20px;
+      top: -5px;
+      margin: 2px 0px 2px 2px;
+      background-color: var(--switch-primary, $primary);
+      box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    }
+  }
+  .switch-ripple {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: var(--radio-ripple, $grey-light);
+    display: block;
+    content: '';
+    border-radius: 9999px;
+    opacity: 1;
+    animation: 0.9s ease 1 forwards switch-ripple-effect;
+  }
+
+  @keyframes switch-ripple-effect {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.25);
+      opacity: 0.375;
+    }
+    100% {
+      transform: scale(1.75);
+      opacity: 0;
+    }
+  }
+}

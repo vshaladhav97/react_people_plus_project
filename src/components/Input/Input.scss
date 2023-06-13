@@ -1,0 +1,232 @@
+$primary: #4c1bc1;
+$label-color: #757575;
+$font-size: 14px;
+$placeholder-color: #ccc;
+$border-color: #dadfe5;
+$placeholder-font-size: 11px;
+$background: #fff;
+$border-radius: 5px;
+
+.input__label {
+  min-height: 16px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 0.14px;
+  text-align: left;
+  color: var(--input-label-color, $label-color);
+  word-wrap: break-word;
+}
+
+.input__message {
+  font-size: 12px;
+  margin-top: 5px;
+  padding-left: 3px;
+}
+
+.form-control--left {
+  display: flex;
+  align-items: center;
+}
+
+.form-control--top {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  .input__label {
+    margin-bottom: 10px;
+  }
+}
+
+.form-control--float {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .input__label {
+    position: absolute;
+    z-index: 9999;
+    color: var(--input-float-label-color, $label-color);
+    padding: 0px 10px;
+    transform: translate(0, 8px) scale(1);
+    transform-origin: top;
+    transition: all 0.05s ease-out;
+  }
+  .input-container {
+    border: none;
+    &:focus-within {
+      box-shadow: none;
+    }
+  }
+  &:focus-within .fieldset {
+    border: solid var(--input-float-active-border-width, 2px) var(--input-float-active-border-color, #14d4f4);
+  }
+  .border-active {
+    border: solid var(--input-float-active-border-width, 2px) var(--input-float-active-border-color, #14d4f4);
+  }
+  &:focus-within .input__label {
+    transform: translate(0px, 0px) scale(0.35);
+    visibility: hidden;
+  }
+  &:focus-within .fieldset .legend {
+    visibility: visible;
+    max-width: fit-content;
+    transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+    color: var(--input-float-label-color, #14d4f4);
+  }
+  .active {
+    transform: translate(0, -5px) scale(0.85);
+    visibility: hidden;
+  }
+  .fieldset {
+    top: -5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    border-style: solid;
+    border-width: var(--input-float-active-border-width, 2px);
+    border-radius: 5px;
+    pointer-events: none;
+    .legend {
+      width: auto;
+      height: 12px;
+      display: block;
+      padding: 0;
+      font-size: var(--input-float-label-active-font-size, 12px);
+      font-family: var(--input-float-label-font);
+      max-width: 0.01px;
+      text-align: left;
+      transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+      visibility: hidden;
+      span {
+        position: relative;
+        top: -3px;
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+    .label-active {
+      visibility: visible;
+      color: var(--input-float-label-color, #14d4f4);
+      max-width: fit-content;
+      transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  border: solid var(--input-border-width, 1px) var(--input-border-color, $border-color);
+  border-radius: var(--input-border-radius, $border-radius);
+  background: var(--input-background, $background);
+  position: relative;
+
+  &:focus-within {
+    box-shadow: 0 0 0 1px var(--input-outline-color, $primary);
+  }
+
+  &.disabled-true {
+    cursor: not-allowed;
+    opacity: var(--input-disabled-opacity, 0.5);
+    background: var(--input-disabled-bg, $background);
+    & > * {
+      cursor: not-allowed;
+    }
+  }
+
+  .input {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    flex: 1;
+    border: none;
+    border-radius: inherit;
+    font-size: var(--input-font-size, $font-size);
+    font-family: var(--input-font);
+    background: transparent;
+    min-width: 20px;
+
+    &::placeholder {
+      font-family: var(--input-placeholder-font);
+      font-size: var(--input-placeholder-font-size, $placeholder-font-size);
+      color: var(--input-placeholder-color, $placeholder-color);
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2;
+      letter-spacing: 0.11px;
+      text-align: left;
+    }
+    &::-webkit-input-placeholder {
+      font-family: var(--input-placeholder-font);
+      font-size: var(--input-placeholder-font-size, $placeholder-font-size);
+      color: var(--input-placeholder-color, $placeholder-color);
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2;
+      letter-spacing: 0.11px;
+      text-align: left;
+    }
+    ::-moz-placeholder {
+      font-family: var(--input-placeholder-font);
+      font-size: var(--input-placeholder-font-size, $placeholder-font-size);
+      color: var(--input-placeholder-color, $placeholder-color);
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2;
+      letter-spacing: 0.11px;
+      text-align: left;
+    }
+    :-ms-input-placeholder {
+      font-family: var(--input-placeholder-font);
+      color: var(--input-placeholder-color, defaultPlaceholderColor);
+      font-size: var(--input-placeholder-font-size, $placeholder-font-size);
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2;
+      letter-spacing: 0.11px;
+      text-align: left;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .form-control--left {
+    flex-direction: column;
+    align-items: unset;
+
+    .input__label {
+      margin-bottom: 10px;
+    }
+  }
+
+  .input__message {
+    margin-left: 0px !important;
+  }
+}

@@ -1,0 +1,37 @@
+$gray: #d1d8e0;
+.multi-input {
+  width: 40px;
+  height: 54px;
+  padding: 0;
+  margin-right: 10px;
+  text-align: center;
+  border: 1px solid var(--multi-input-border, $gray);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 28px;
+  font-family: var(--multi-input-font);
+  @media (max-width: 767px) {
+    width: 35px;
+    height: 40px;
+    padding: 0;
+    margin-right: 5px;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  &:focus,
+  &.focus {
+    outline: none;
+    box-shadow: none;
+  }
+  &__message {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,122 @@
+#date-picker {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+#date-picker input {
+  width: 96%;
+  border-radius: 5px;
+  padding: 10px 2% 10px 2%;
+  color: var(--datepicker-text, #000000);
+  font-family: inherit;
+}
+
+#date-picker .date-picker-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  border: 1px solid var(--datepicker-disabled-border, #ccc);
+}
+
+#date-picker .filter-button {
+  position: absolute;
+  width: 25%;
+  right: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 12px;
+  margin-left: -50px;
+  height: 23px;
+  background-color: var(--datepicker-filter-button-bg, #18b1cc);
+  color: var(--datepicker-filter-btn, #ffffff);
+}
+
+#date-picker .border-bottom-0 {
+  border-bottom: 0px;
+}
+#date-picker .border-bottom-1 {
+  border-bottom: 1px solid var(--datepicker-border, #d1d8e0);
+}
+
+.open-top {
+  bottom: 36px;
+  visibility: visible;
+}
+.open-bottom {
+  visibility: visible;
+  top: 36px;
+}
+.open-above {
+  z-index: 9;
+  visibility: visible;
+}
+
+@media (max-width: 767px) {
+  #date-picker .filter-button {
+    width: 35%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .form__input {
+    border: none;
+    outline: none;
+    &:focus-within {
+      box-shadow: none;
+    }
+  }
+  .fieldset {
+    margin: -1px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border-style: solid;
+    border-width: var(--input-float-active-border-width, 2px);
+    border-radius: 5px;
+    pointer-events: none;
+    .legend {
+      width: auto;
+      height: 12px;
+      padding: 0;
+      font-size: var(--input-float-label-active-font-size, 12px);
+      font-family: var(--input-float-label-font);
+      max-width: 0rem;
+      text-align: left;
+      transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+      visibility: hidden;
+      span {
+        position: relative;
+        top: -3px;
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+    .label-active {
+      visibility: visible;
+      color: var(--input-float-label-color, #14d4f4);
+      max-width: fit-content;
+      transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+    }
+  }
+  .border-active {
+    border: solid var(--input-float-active-border-width, 2px) var(--input-float-active-border-color, #14d4f4);
+  }
+  &:focus-within .fieldset .legend {
+    visibility: visible;
+    max-width: fit-content;
+    transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+    color: var(--input-float-label-color, #14d4f4);
+  }
+  &:focus-within .fieldset {
+    border: solid var(--input-float-active-border-width, 2px) var(--input-float-active-border-color, #14d4f4);
+  }
+}
